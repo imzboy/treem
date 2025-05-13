@@ -25,7 +25,7 @@ import { useRouter } from "next/navigation"
 type LoginFormSchema = {
   username: string;
   password: string;
-}
+};
 
 const defaultValues: LoginFormSchema = {
   username: "",
