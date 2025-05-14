@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { JSX } from "react";
 
 export type MetricCardProps = {
   title?: string;
@@ -16,7 +17,17 @@ const defaultProps: MetricCardProps = {
   displayValue: 0,
 }
 
-export default function MetricCard(props: MetricCardProps) {
+/**
+ * MetricCard component displays a card with a title and a formatted display value.
+ *
+ * @param {MetricCardProps} props - Properties for the MetricCard component.
+ * @param {string} [props.title] - The title to be displayed on the card.
+ * @param {number} [props.displayValue] - The value to be formatted and displayed on the card.
+ * 
+ * @returns {JSX.Element} A card component with a description and a title.
+ */
+
+export default function MetricCard(props: MetricCardProps): JSX.Element {
 
   const { title, displayValue } = { ...defaultProps, ...props };
 

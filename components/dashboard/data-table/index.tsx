@@ -28,10 +28,23 @@ interface DataTableProps<TData, TValue> {
   data: TData[]
 }
 
+/**
+ * Renders a data table with sorting and pagination functionalities.
+ *
+ * @template TData - The type of data to be displayed in the table.
+ * @template TValue - The type of value that each column can hold.
+ *
+ * @param {Object} props - The properties for configuring the data table.
+ * @param {ColumnDef<TData, TValue>[]} props.columns - An array of column definitions specifying how each column should be rendered.
+ * @param {TData[]} props.data - An array of data objects to be displayed in the table.
+ *
+ * @returns {JSX.Element} A component that renders a table with sortable columns and pagination controls. Displays "No results" if no data is available.
+ */
+
 export function DataTable<TData, TValue>({
   columns,
   data,
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<TData, TValue>): JSX.Element {
 
   const [sorting, setSorting] = React.useState<SortingState>([])
 

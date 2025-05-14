@@ -13,6 +13,8 @@ import { Investor } from "@/types";
 
 
 export default function Dashboard() {
+
+  // Not critical, but a react context could be used in the future to prevent props drillin with investor data
   const [investorData, setInvestorData] = useState<Investor>();
 
   useEffect(() => {
