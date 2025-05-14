@@ -40,7 +40,7 @@ export default function ProfileForm() {
     defaultValues,
   });
 
-  function onSubmit(values: LoginFormSchema) {
+  function onSubmit() {
     // redirect to dashboard
     router.push("/dashboard");
   }
