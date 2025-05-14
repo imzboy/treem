@@ -38,7 +38,7 @@ interface DataTableProps<TData, TValue> {
  * @param {ColumnDef<TData, TValue>[]} props.columns - An array of column definitions specifying how each column should be rendered.
  * @param {TData[]} props.data - An array of data objects to be displayed in the table.
  *
- * @returns {JSX.Element} A component that renders a table with sortable columns and pagination controls. Displays "No results" if no data is available.
+ * @returns {React.JSX.Element} A component that renders a table with sortable columns and pagination controls. Displays "No results" if no data is available.
  */
 
 export function DataTable<TData, TValue>({
