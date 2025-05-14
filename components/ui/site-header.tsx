@@ -1,4 +1,5 @@
 import { Separator } from "@/components/ui/separator"
+import { PayOutButton } from "../dashboard/payout-button"
 
 export function SiteHeader({ title }: { title: string }) {
 
@@ -10,6 +11,9 @@ export function SiteHeader({ title }: { title: string }) {
           className="mx-2 data-[orientation=vertical]:h-4"
         />
         <h1 className="text-base font-medium">{title}</h1>
+        <div className="flex flex-1 justify-end" >
+          <PayOutButton />
+        </div>
       </div>
     </header>
   )

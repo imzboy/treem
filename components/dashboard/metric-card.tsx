@@ -8,12 +8,12 @@ import {
 
 export type MetricCardProps = {
   title?: string;
-  displayValue?: string;
+  displayValue?: number;
 }
 
 const defaultProps: MetricCardProps = {
   title: "Total Revenue",
-  displayValue: "$1,250.00",
+  displayValue: 0,
 }
 
 export default function MetricCard(props: MetricCardProps) {
@@ -25,14 +25,12 @@ export default function MetricCard(props: MetricCardProps) {
       <CardHeader className="relative">
         <CardDescription>{title}</CardDescription>
         <CardTitle className="@[250px]/card:text-3xl text-2xl font-semibold tabular-nums">
-          {displayValue}
+          {displayValue && new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+          }).format(displayValue)}
         </CardTitle>
       </CardHeader>
-      <CardFooter className="flex-col items-start gap-1 text-sm">
-        <div className="text-muted-foreground">
-          Visitors for the last 6 months
-        </div>
-      </CardFooter>
     </Card>
   )
 }

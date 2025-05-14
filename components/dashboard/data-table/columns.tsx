@@ -1,40 +1,28 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { Investment } from "@/types"
 import { ColumnDef } from "@tanstack/react-table"
 import { ArrowUpDown } from "lucide-react"
 
-// AI! filled all the columns and matched the data
-export type Investment = {
-  id: string // uuid, primary key
-  investorId: string // uuid
-  projectName: string // text
-  tokenClass: string // text
-  sharesOwned: number // integer
-  marketValue: number // numeric
-  roi: number // numeric
-  nextDistributionDate: Date // date
-  createdAt: Date // timestamp
-}
-
 export const columns: ColumnDef<Investment>[] = [
   {
-    accessorKey: "projectName",
+    accessorKey: "project_name",
     header: "Project Name",
   },
   {
-    accessorKey: "tokenClass",
+    accessorKey: "token_class",
     header: "Token Class",
   },
   {
-    accessorKey: "sharesOwned",
+    accessorKey: "shares_owned",
     header: "Shares Owned",
   },
   {
-    accessorKey: "marketValue",
+    accessorKey: "market_value",
     header: "Market Value",
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("marketValue"))
+      const amount = parseFloat(row.getValue("market_value"))
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
@@ -44,7 +32,7 @@ export const columns: ColumnDef<Investment>[] = [
     },
   },
   {
-    accessorKey: "roi",
+    accessorKey: "roi_percent",
     header: ({ column }) => {
       return (
         <Button
@@ -58,12 +46,12 @@ export const columns: ColumnDef<Investment>[] = [
     },
 
     cell: ({ row }) => {
-      const roi = row.getValue("roi")
+      const roi = row.getValue("roi_percent")
       return `${roi}%`
     }
   },
   {
-    accessorKey: "nextDistributionDate",
+    accessorKey: "next_distribution_date",
     header: ({ column }) => {
       return (
         <Button
@@ -75,14 +63,5 @@ export const columns: ColumnDef<Investment>[] = [
         </Button>
       )
     },
-    cell: ({ row }) => {
-      const date: string = row.getValue("nextDistributionDate")
-      const formatted = new Intl.DateTimeFormat("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      }).format(new Date(date))
-      return formatted
-    }
   },
 ]
