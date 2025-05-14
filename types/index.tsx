@@ -14,10 +14,10 @@ export type Investment = {
 
 export type Investor = {
     id: string // uuid, primary key
-    total_invested_amount: number // number
-    portfolio_value: number // text
-    distributions_received: number // number
-    outstanding_commitments: number // number
+    total_invested_amount: number // numeric
+    portfolio_value: number // numeric
+    distributions_received: number // numeric
+    outstanding_commitments: number // numeric
     createdAt: Date // timestamp
     investments: Investment[]
 }
