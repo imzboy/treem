@@ -2,6 +2,11 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import supabase from '@/lib/supabase';
 
 
+/**
+ * Handle POST requests to the /api/investor/payout endpoint,
+ * incrementing the distributions_received value for the
+ * investor_summary table.
+ */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   if (req.method === 'POST') {

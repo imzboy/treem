@@ -12,10 +12,15 @@ import {
 import { Button } from "@/components/ui/button"
 
 
+/**
+ * A button that initiates a payout when clicked. The button is wrapped in an
+ * `AlertDialog` to ensure that the user is absolutely sure they want to take
+ * this action, as it cannot be undone.
+ */
 export function PayOutButton() {
 
   async function handlePayout() {
-    await fetch('/api/investor', {
+    await fetch('/api/investor/payout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
